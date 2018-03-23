@@ -4,8 +4,7 @@ services:
         image: e96tech/phabricator
         container_name: phabricator
         environment:
-          - SERVICE_NAME=phabricator-app
-          - SERVICE_HOST=http://phabricator.docker/
+          - SERVICE_HOST=phabricator.docker
           - SQL_HOST=localhost
           - SQL_USER=user
           - SQL_PASS=mysecretpassword
