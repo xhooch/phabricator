@@ -24,6 +24,10 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php-imagick php-memcache \
     nginx \
     git \
+    iproute \
+    net-tools \
+    && curl -sSL https://github.com/kreuzwerker/envplate/releases/download/v0.0.8/ep-linux -o /usr/local/bin/ep \
+    && chmod +x /usr/local/bin/ep \
     && phpdismod xdebug \
     && ln -s /etc/php/7.1 /etc/php/current \
     && apt-get clean autoclean \
@@ -38,12 +42,10 @@ COPY docker/php/fpm/ /etc/php/7.1/fpm/
 COPY docker/php/php-cli.ini /etc/php/7.1/cli/php.ini
 RUN mkdir /var/log/fpm && chown www-data:www-data /var/log/fpm
 
-COPY docker/init.d/ /etc/my_init.d/
+COPY docker/init/ /etc/my_init.d/
 
 # configure nginx
 COPY docker/nginx/ /etc/nginx/
-
-COPY docker/bin /usr/local/bin
 
 # Phb
 RUN mkdir phabricator && \

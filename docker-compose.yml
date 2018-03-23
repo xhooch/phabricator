@@ -6,11 +6,12 @@ services:
         environment:
           - SERVICE_HOST=phabricator.docker
           - SQL_HOST=localhost
-          - SQL_USER=user
-          - SQL_PASS=mysecretpassword
-          - SPRINT_PLUGIN_PATH=/var/www/phabricator/plugins/sprint/src
+          - SQL_PORT=3306
+          - SQL_USER=root
+          - SQL_PASS=mysecret
+          - SPRINT_PLUGIN_PATH=/var/www/phabricator/plugins/sprints/src
         volumes:
-          - /home/www/phabricator/plugins:/phabricator/plugins
+          - /home/alexander/www/phabricator/plugins:/var/www/phabricator/plugins
         ports:
           - 22:22
           - 80:80
