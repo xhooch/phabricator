@@ -1,0 +1,19 @@
+version: '2'
+services:
+    phb:
+        image: e96tech/phabricator
+        container_name: phabricator
+        environment:
+          - SERVICE_NAME=phabricator-app
+          - SERVICE_HOST=http://phabricator.docker/
+          - SQL_HOST=localhost
+          - SQL_USER=user
+          - SQL_PASS=mysecretpassword
+          - SPRINT_PLUGIN_PATH=/var/www/phabricator/plugins/sprint/src
+        volumes:
+          - /home/www/phabricator/plugins:/phabricator/plugins
+        ports:
+          - 22:22
+          - 80:80
+          - 443:443
+          - 22280:22280
