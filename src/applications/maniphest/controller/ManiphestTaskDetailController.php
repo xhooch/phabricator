@@ -183,7 +183,7 @@ final class ManiphestTaskDetailController extends ManiphestController {
         ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
         ->addTabGroup($tab_group);
     }
-
+//echo '<pre>';print_r($timeline);die;
     $view = id(new PHUITwoColumnView())
       ->setHeader($header)
       ->setCurtain($curtain)
