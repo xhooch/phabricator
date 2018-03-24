@@ -75,7 +75,7 @@ final class PhabricatorManiphestConfigOptions
       'resolved' => array(
         'name' => pht('Resolved'),
         'name.full' => pht('Closed, Resolved'),
-        'closed' => false,
+        'closed' => true,
         'special' => ManiphestTaskStatus::SPECIAL_CLOSED,
         'transaction.icon' => 'fa-check-circle',
         'prefixes' => array(
